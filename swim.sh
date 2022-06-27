@@ -26,7 +26,7 @@ fetch_user_config() {
     cd "${SWIM_USER_CONFIG_DIR_SRC}" || exit
     git pull -q --rebase origin master
   else
-    git clone -q https://github.com/eurocontrol-swim/swim-user-config.git "${SWIM_USER_CONFIG_DIR_SRC}"
+    git clone -q https://github.com/kjenod/swim-user-config.git "${SWIM_USER_CONFIG_DIR_SRC}"
   fi
   cd "${ROOT_DIR}" || exit
 }
@@ -70,7 +70,7 @@ prepare_repos() {
     cd "${SUBSCRIPTION_MANAGER_DIR_SRC}" || exit
     git pull -q --rebase origin master
   else
-    git clone -q https://github.com/eurocontrol-swim/subscription-manager.git "${SUBSCRIPTION_MANAGER_DIR_SRC}"
+    git clone -q https://github.com/kjenod/subscription-manager.git "${SUBSCRIPTION_MANAGER_DIR_SRC}"
   fi
   echo "OK"
 
@@ -80,7 +80,7 @@ prepare_repos() {
     cd "${SWIM_ADSB_DIR_SRC}" || exit
     git pull -q --rebase origin master
   else
-    git clone -q https://github.com/eurocontrol-swim/swim-adsb.git "${SWIM_ADSB_DIR_SRC}"
+    git clone -q https://github.com/kjenod/swim-adsb.git "${SWIM_ADSB_DIR_SRC}"
   fi
   echo "OK"
 
@@ -90,7 +90,7 @@ prepare_repos() {
     cd "${SWIM_EXPLORER_DIR_SRC}" || exit
     git pull -q --rebase origin master
   else
-    git clone -q https://github.com/eurocontrol-swim/swim-explorer.git "${SWIM_EXPLORER_DIR_SRC}"
+    git clone -q https://github.com/kjenod/swim-explorer.git "${SWIM_EXPLORER_DIR_SRC}"
   fi
   echo "OK"
 
