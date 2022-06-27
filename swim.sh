@@ -47,7 +47,7 @@ user_config() {
 
   touch "${ENV_FILE}"
 
-  python "${SWIM_USER_CONFIG_DIR_SRC}/swim_user_config/main.py" -c "${SWIM_USER_CONFIG_DIR}/config.json" -o "${ENV_FILE}" ${P}
+  python3 "${SWIM_USER_CONFIG_DIR_SRC}/swim_user_config/main.py" -c "${SWIM_USER_CONFIG_DIR}/config.json" -o "${ENV_FILE}" ${P}
 
   if is_windows
   then
@@ -56,7 +56,7 @@ user_config() {
 
   while read -r LINE; do export "${LINE}"; done < "${ENV_FILE}"
 
-  rm "${ENV_FILE}"
+  # rm "${ENV_FILE}"
 }
 
 
@@ -100,21 +100,21 @@ prepare_repos() {
 data_provision() {
   echo "Data provisioning to Subscription Manager..."
   echo -e "============================================\n"
-  docker-compose run subscription-manager-provision
+  docker compose run subscription-manager-provision
   echo ""
 }
 
 start_services() {
   echo "Starting up SWIM..."
   echo -e "===================\n"
-  docker-compose up -d web-server subscription-manager swim-adsb swim-explorer
+  docker compose up -d web-server subscription-manager swim-adsb swim-explorer
   echo ""
 }
 
 stop_services_with_clean() {
   echo "Stopping SWIM..."
   echo -e "================\n"
-  docker-compose down
+  docker compose down
   echo ""
 }
 
@@ -129,7 +129,7 @@ stop_services_with_purge() {
 stop_services() {
   echo "Stopping SWIM..."
   echo -e "================\n"
-  docker-compose stop
+  docker compose stop
   echo ""
 }
 
@@ -150,7 +150,7 @@ build() {
   docker build --no-cache --force-rm -t swim-base.conda -f Dockerfile.conda .
 
   # Build the rest of the images
-  docker-compose build --force-rm
+  docker compose build --force-rm
 
   cd "${ROOT_DIR}" || exit 1
   echo ""
