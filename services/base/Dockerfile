@@ -1,4 +1,4 @@
-FROM ubuntu:19.10
+FROM ubuntu:22.04
 
 LABEL maintainer="SWIM EUROCONTROL <http://www.eurocontrol.int>"
 
